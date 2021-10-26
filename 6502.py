@@ -1,4 +1,4 @@
-import sys
+import sys, os
 
 IMPLIED = "IMP"             # DEX
 ACCUMULATOR = "ACC"         # ASL A
@@ -143,7 +143,7 @@ def main(file_in, file_out):
             labelStr, labels[label] = str(label), pc
         else:
             labelStr = ''
-        print('{:7} | {:04} | {:6} | {:12} | {}'.format(i, pc, labelStr, line.strip().upper().removeprefix(labelStr + ':').strip(), op))
+        print('{:7} | {:04} | {:6} | {:12} | {}'.format(i, pc, labelStr, line.strip().upper(), op))
         bytes.extend(op)
         pc += len(op)
 
@@ -156,6 +156,8 @@ def main(file_in, file_out):
                 addr = 256 + addr
             bytes[pc] = addr
 
+    file_out = 'build/' + file_out
+    print(file_out)
     output = open(file_out, "wb")
     output.write(bytearray(bytes))
     output.close()
@@ -165,6 +167,10 @@ if len(sys.argv) > 4:
     if sys.argv[1] == "--in" or sys.argv[1] == "-i":
         if sys.argv[3] == "--out" or sys.argv[3] == "-o":
             main(sys.argv[2], sys.argv[4])
+            try:
+                os.mkdir("build")
+            except:
+                print("Error while making drectory build")
     else:
         print("Please specify the in and out file")
 else:
