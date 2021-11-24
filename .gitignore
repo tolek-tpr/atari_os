@@ -2,3 +2,4 @@
 /dist/
 *.bin
 build/*
+__pycache__

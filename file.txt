@@ -1,6 +1,7 @@
 start:
-    PHA
-here: LDA $14
+    PLA
+here: 
+    LDA $14
     STA 710
     CMP #0
     BNE here:
