@@ -1,2 +1,21 @@
 # SETUP
-run python3 6502.py -i (--in) <assembly file name> -o(--out) <binary file to write to>
+Make a new assembler file and run `python3 6502.py -i (--in) <assembly file name> -o(--out) <binary file to write to>`
+# COMMANDS
+- `TXS`
+- `TSX`
+- `PHA`
+- `PLA`
+- `PHP`
+- `PLP`
+- `JMP`
+- `JSR`
+- `RTS`
+- `LDA`
+- `LDX`
+- `NOP`
+- `STA`
+- `CMP`
+- `INX`
+- `INY`
+- `BNE`
+- `BEQ`
